@@ -10,6 +10,12 @@ http.createServer(function (req, res) {
   const isChrome = /Chrome/i.test(userAgent);
   let filePath;
 
+    if (req.url === '/' || req.url === '/index.html') {
+    const userAgent = req.headers['user-agent'];
+    const ip = req.socket.remoteAddress;
+    console.log(`visitor:\n  IP: ${ip}\n  user-agent: ${userAgent}\n`);
+  }
+
   if(isChrome){
     filePath = "chrome.html"
   }else{
