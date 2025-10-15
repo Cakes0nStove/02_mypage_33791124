@@ -4,8 +4,7 @@ const path = require("path");
 const port = 8000;
 
 http.createServer(function (req, res) {
-  console.log(req.url);
-  console.log(req.headers['user-agent']);
+
   const userAgent = req.headers['user-agent'];
   const isChrome = /Chrome/i.test(userAgent);
   let filePath;
