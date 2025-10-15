@@ -12,6 +12,7 @@ http.createServer(function (req, res) {
     if (req.url === '/' || req.url === '/index.html') {
     const userAgent = req.headers['user-agent'];
     const ip = req.socket.remoteAddress;
+    const timestamp = new Date().toLocaleString('en-GB', { timeZone: 'Europe/London' });
     console.log(`visitor:\n  IP: ${ip}\n  user-agent: ${userAgent}\n  Date & Time: ${timestamp}`);
   }
 
