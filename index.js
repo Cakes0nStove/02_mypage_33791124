@@ -7,16 +7,16 @@ const port = 8000;
 http.createServer(function (req, res) {
   const userAgent = req.headers['user-agent'];
   const isChrome = /Chrome/i.test(userAgent);
-
   const timestamp = new Date().toLocaleString('en-GB', { timeZone: 'Europe/London' });
   console.log(` user-agent: ${userAgent}\n  Date & Time: ${timestamp}`);
 
-  let filePath = "";
+  let filePath;
 
   if (req.url === '/' || req.url === '/index.html') {
     filePath = isChrome ? "HTML/chrome.html" : "HTML/webpage.html";
   } else {
     filePath = path.join(__dirname, req.url);
+    filePath = path.resolve(filePath);
   }
 
   if (!filePath.startsWith(__dirname)) {
