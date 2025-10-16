@@ -11,15 +11,14 @@ http.createServer(function (req, res) {
 
     if (req.url === '/' || req.url === '/index.html') {
     const userAgent = req.headers['user-agent'];
-    const ip = req.socket.remoteAddress;
     const timestamp = new Date().toLocaleString('en-GB', { timeZone: 'Europe/London' });
-    console.log(`visitor:\n  IP: ${ip}\n  user-agent: ${userAgent}\n  Date & Time: ${timestamp}`);
+    console.log(` user-agent: ${userAgent}\n  Date & Time: ${timestamp}`);
   }
 
   if(isChrome){
-    filePath = "chrome.html"
+    filePath = "HTML/chrome.html"
   }else{
-        filePath = req.url === "/" ? "webpage.html" : req.url.substring(1);
+        filePath = req.url === "/" ? "HTML/webpage.html" : req.url.substring(1);
   }
   const ext = path.extname(filePath);
 
