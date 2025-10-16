@@ -16,9 +16,9 @@ http.createServer(function (req, res) {
   }
 
   if(isChrome){
-    filePath = "HTML/chrome.html"
+    filePath = "chrome.html"
   }else{
-        filePath = req.url === "/" ? "HTML/webpage.html" : req.url.substring(1);
+        filePath = req.url === "/" ? "index.html" : req.url.substring(1);
   }
   const ext = path.extname(filePath);
 
