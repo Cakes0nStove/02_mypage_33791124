@@ -21,12 +21,14 @@ http.createServer(function (req, res) {
         filePath = req.url === "/" ? "index.html" : req.url.substring(1);
   }
   const ext = path.extname(filePath);
-
   const mimeTypes = {
     ".html": "text/html",
     ".css": "text/css",
     ".jpg": "image/jpeg",
+    ".jpeg": "image/jpeg",
     ".gif": "image/gif",
+    ".png": "image/png",
+    ".mp4": "video/mp4",
     ".js": "application/javascript"
   };
 
